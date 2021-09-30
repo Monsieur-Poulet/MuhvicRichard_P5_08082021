@@ -27,7 +27,7 @@ function displayProduct(product) {
         newDiv.innerHTML +=
             `<div class="card">
                 <img id="image" src=${product[i].imageUrl} alt="image de la caméra un">
-                <a href="./product.html?${product[i]._id}" id="price">
+                <a href="./product.html?id=${product[i]._id}" id="price">
                     <h2 class="name_product" >${product[i].name}</h2>
                     <p class="price" >${numberEnEuro.toFixed(2)}</p>
                 </a>

@@ -5,9 +5,13 @@
 - Génèrer le html comme tu as fait sur la page index.  product.js 
 */
 
+// Utiliser URLsearchParam("id")?
+let urlData = new URL("http://localhost:3000/api/cameras/");
+let _id = new URLSearchParams.get(_id);
+//introduire la variable dans la ligne 13 (fetch):
 
 //fetch du produit ciblé :
-fetch('http://localhost:3000/api/cameras/')
+fetch('http://localhost:3000/api/cameras/'+ _id)
  .then( function(response) {
      return response.json();
  })
@@ -15,11 +19,6 @@ fetch('http://localhost:3000/api/cameras/')
      console.log(data.length);
      displayProduct(data)
  });
-
-
-
-// Utiliser URLsearchParam?
-// Utiliser le signe '?' pour lier l'ID en fonction de la carte choisie? 
 
 
 //la fonction doit envoyer au produit sélectionné 
@@ -32,17 +31,34 @@ function displayProduct(product) {
 
     //création de la carte produit choisi :
     product.innerHTML +=
-    `<div>
-        <img src=${product[i].imageUrl} alt="image de la caméra">
-        <div class="description_produit">
-            <h2>${product[i].name}</h2>
-            <p>${product[i].description}</p>
-            <p class="price">${numberEnEuro.toFixed(2)}</p>
-            <p>Quantité :</p>
-        </div>
-        <div class="btn">
-            <a href="index.html" id="back">Revenir aux caméras</a>
-            <a href="panier.html" id="panier">Ajouter au panier</a>
-        </div>
-    </div>`
-}
+        `<div>
+            <img src=${product[i].imageUrl} alt="image de la caméra">
+            <div class="description_produit">
+                <h2>${product[i].name}</h2>
+                <p>${product[i].description}</p>
+                <p class="price">${numberEnEuro.toFixed(2)}</p>
+                <p>Quantité :</p>
+            </div>
+            <div class="btn">
+                <a href="index.html" id="back">Revenir aux caméras</a>
+                <a href="panier.html" id="panier">Ajouter au panier</a>
+            </div>
+        </div>`
+
+//Ajouter un menu déroulant qui définit l'option de la lentille(lense) :
+//balise type option
+
+
+//afficher la sélection de la lentille :
+
+
+/*Bouton 'Ajouter au panier'Si validation du panier, qui déclenche une alert 
+(voir le localstorage) qui mène vers order.html (nouvelle page)
+Sinon, envoyer vers index.html :*/
+
+
+
+
+//----Option de l'objet, ajouter une quantité de produit (bonus) :----//
+};
+
